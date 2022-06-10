@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-TARGET_KERNEL_DIR ?= device/google/shusky-kernel
-TARGET_BOARD_KERNEL_HEADERS := device/google/shusky-kernel/kernel-headers
-
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
     USE_UWBFIELDTESTQM := true
 endif
