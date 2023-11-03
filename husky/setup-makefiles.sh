@@ -8,7 +8,7 @@
 
 set -e
 
-DEVICE=cheetah
+DEVICE=husky
 VENDOR=google
 
 # Load extract_utils and do some sanity checks
