@@ -53,6 +53,12 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
+function prepare_firmware() {
+    if [ "${SRC}" != "adb" ]; then
+        bash "${ANDROID_ROOT}"/lineage/scripts/pixel/prepare-firmware.sh "${DEVICE}" "${SRC}"
+    fi
+}
+
 # Initialize the helper
 setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
@@ -61,5 +67,9 @@ extract "${MY_DIR}/proprietary-files-carriersettings.txt" "${SRC}" "${KANG}" --s
 extract "${MY_DIR}/proprietary-files-vendor.txt" "${SRC}" "${KANG}" --section "${SECTION}"
 
 extract_carriersettings
+
+if [ -z "${SECTION}" ]; then
+    extract_firmware "${MY_DIR}/proprietary-firmware.txt" "${SRC}"
+fi
 
 "${MY_DIR}/setup-makefiles.sh"
