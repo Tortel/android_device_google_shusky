@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "android_device_google_shusky-sepolicy",
+    "target_path": "device/google/shusky-sepolicy"
+  },
+  {
+    "repository": "android_device_google_zuma",
+    "target_path": "device/google/zuma"
+  }
+]
